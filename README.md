@@ -14,11 +14,10 @@ A simple Arduino program to automatically keep score on an indoor mini basketbal
 * Indoor mini basketball hoop
 
 ## Circuit:
-Coming soon
+![alt tag](/Circuit_Setup.png)
 
 ## Assembly Instructions:
-1. Assemble the circuit as shown in the above diagram (optionally using the breadboard to make it easier). If you are using a breadboard, it should look something like this:
-(Insert picture)
+1. Assemble the circuit as shown in the above diagram (optionally using the breadboard to make it easier).
 * You will want to have long wires for any components that connect to the Arduino since the Arduino will be positioned far away from the basketball hoop itself
 2. Mount the flex sensor (and possibly the breadboard as well)  underneath the basketball hoop, in a position so that a basketball going through the hoop will bend the flex sensor.
 3. You can make a box or container for the Arduino or LCD screen out of wood or plastic. The one I used is shown here:
