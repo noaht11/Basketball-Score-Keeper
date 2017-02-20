@@ -14,7 +14,7 @@ A simple Arduino program to automatically keep score on an indoor mini basketbal
 * Indoor mini basketball hoop
 
 ## Circuit:
-![alt tag](/Circuit_Setup.png)
+![alt tag](/docs/Circuit_Setup.png)
 
 ## Assembly Instructions:
 1. Assemble the circuit as shown in the above diagram (optionally using the breadboard to make it easier).
