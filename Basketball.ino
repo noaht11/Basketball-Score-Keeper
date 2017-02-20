@@ -11,13 +11,13 @@
 
 #define PIN_TIMER_BUTTON 7
 
-#define FLEX_THRESHOLD 75
-#define FLEX_TOLERANCE 20
+#define FLEX_TOLERANCE 20 // Value added to the initial flex sensor reading to determine the "unflexed position"
+#define FLEX_THRESHOLD 75 // Minimum deviation from the "unflexed position" to count a basket
 
 #define GAME_STATE_RUNNING 1
 #define GAME_STATE_STOPPED 0
 
-#define ROUND_TIME 60
+#define ROUND_TIME 60 // (seconds)
 
 SoftwareSerial lcd(PIN_LCD_RX, PIN_LCD_TX);
 
@@ -38,11 +38,13 @@ char timeString[3];
 void setup() {
   lcd.begin(9600);
   delay(500);
-  
+
+  // Setup pins
   pinMode(PIN_BUZZER, OUTPUT);
   pinMode(PIN_FLEX, INPUT);
   pinMode(PIN_TIMER_BUTTON, INPUT_PULLUP);
-  
+
+  // Clear LCD
   lcd.write(254); // Move cursor to...
   lcd.write(128); // ...line 1 position 0
   lcd.write("Time:           "); // clear display
@@ -50,6 +52,7 @@ void setup() {
   lcd.write(192); // ...line 2 position 0
   lcd.write("Score:          ");
 
+  // Determine what an unflexed state should be so we can determine a relative flexed state
   unflexedPosition = analogRead(PIN_FLEX) + FLEX_TOLERANCE;
 
   secondsRemaining = ROUND_TIME;
@@ -69,6 +72,7 @@ void loop() {
     }
     else if(startButtonPressed == TRUE)
     {
+      // Start button was pressed then released, so start the game
       startButtonPressed = FALSE;
       gameState = GAME_STATE_RUNNING;
       startTime = millis();
